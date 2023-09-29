@@ -1,12 +1,13 @@
 import pygame
 import utilities
-
+from colors import *
 from aStar import *
 
 def main():
+    pygame.init()
+
     #runAStar(algorithm_screen, WIDTH)
 
-    BLACK = (0, 0, 0) 
     # create menu screen 
     WIDTH = 800
     screen = pygame.display.set_mode((WIDTH, WIDTH))
@@ -15,18 +16,14 @@ def main():
     # create algorithm run screen
     #algorithm_screen = pygame.display.set_mode((WIDTH, WIDTH))
 
-    # load button images
-    start_img = pygame.image.load('start_btn.png').convert_alpha()
-    exit_img = pygame.image.load('exit_btn.png').convert_alpha()
-
     # create button instances
-    start_button = utilities.Button(100, 200, start_img, 1)
-    exit_button = utilities.Button(450, 200, exit_img, 1)
+    start_button = utilities.Button(100, 200, "start")
+    exit_button = utilities.Button(450, 200, "exit")
 
     run = True
     
     while run:
-        screen.fill(BLACK)
+        screen.fill(LIGHT_GREY)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

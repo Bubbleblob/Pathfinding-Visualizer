@@ -1,18 +1,19 @@
 import pygame
+from colors import *
 from queue import PriorityQueue
 
 # WIDTH = 800
 # WINDOW = pygame.display.set_mode((WIDTH, WIDTH))
 # pygame.display.set_caption("A* Path Finding Algorithm")
 
-RED = (255, 0, 0)           # end
-GREEN = (0, 255, 0)         # start
-YELLOW = (255, 255, 100)    # closed
-PEACH = (255, 167, 99)      # open
-WHITE = (255, 255, 255)     # blank
-BLACK = (0, 0, 0)           # barrier
-GREY = (128, 128, 128)      # line color
-TURQUOISE = (64, 244, 208)  # path
+# RED = (255, 0, 0)           # end
+# GREEN = (0, 255, 0)         # start
+# YELLOW = (255, 255, 100)    # closed
+# PEACH = (255, 167, 99)      # open
+# WHITE = (255, 255, 255)     # blank
+# BLACK = (0, 0, 0)           # barrier
+# GREY = (128, 128, 128)      # line color
+# TURQUOISE = (64, 244, 208)  # path
 
 class Node:
     def __init__(self, row, col, width, total_rows):
