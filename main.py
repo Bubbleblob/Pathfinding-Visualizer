@@ -1,5 +1,5 @@
 import pygame
-import utilities
+from button import *
 from colors import *
 from aStar import *
 
@@ -12,8 +12,8 @@ def main():
     pygame.display.set_caption("A* Path Finding Algorithm")
 
     # create button instances
-    start_button = utilities.Button(100, 200, "start")
-    exit_button = utilities.Button(450, 200, "exit")
+    start_button = Button(100, 200, "start")
+    exit_button = Button(450, 200, "exit")
 
     run = True
     

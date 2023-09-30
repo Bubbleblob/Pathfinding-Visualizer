@@ -39,5 +39,3 @@ class Button:
 
         return action
     
-
-    
