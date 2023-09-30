@@ -1,5 +1,5 @@
 import pygame
-from colors import *
+from util.colors import *
 
 class Node:
     def __init__(self, row, col, width, total_rows):

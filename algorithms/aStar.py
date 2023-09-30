@@ -1,7 +1,7 @@
 import pygame
 from queue import PriorityQueue
-from node import *
-from graph_util import *
+from util.node import *
+from util.graph_util import *
     
 # def resetGrid(grid):
 #     for row in grid:

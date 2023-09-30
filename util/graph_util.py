@@ -1,6 +1,6 @@
 import pygame
-from node import *
-from colors import *
+from util.node import *
+from util.colors import *
 
 def make_grid(rows, width):
     grid = []

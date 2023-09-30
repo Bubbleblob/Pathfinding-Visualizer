@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from colors import *
+from util.colors import *
 
 class Button:
     # variables 

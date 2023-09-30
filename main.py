@@ -1,7 +1,7 @@
 import pygame
-from button import *
-from colors import *
-from aStar import *
+from util.button import *
+from util.colors import *
+from algorithms.aStar import *
 
 def main():
     pygame.init()
