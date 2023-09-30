@@ -6,15 +6,10 @@ from aStar import *
 def main():
     pygame.init()
 
-    #runAStar(algorithm_screen, WIDTH)
-
     # create menu screen 
     WIDTH = 800
     screen = pygame.display.set_mode((WIDTH, WIDTH))
     pygame.display.set_caption("A* Path Finding Algorithm")
-
-    # create algorithm run screen
-    #algorithm_screen = pygame.display.set_mode((WIDTH, WIDTH))
 
     # create button instances
     start_button = utilities.Button(100, 200, "start")
