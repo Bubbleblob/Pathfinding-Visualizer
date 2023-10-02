@@ -2,6 +2,7 @@ import pygame
 from util.button import *
 from util.colors import *
 from algorithms.aStar import *
+from algorithms.runAlgorithm import *
 
 def main():
     pygame.init()
@@ -25,7 +26,7 @@ def main():
                 run = False
 
         if start_button.draw(screen):
-            runAStar(screen, WIDTH)
+            runAlgorithm(screen, WIDTH)
         if exit_button.draw(screen):
             run = False
 
