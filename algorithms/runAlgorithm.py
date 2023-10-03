@@ -2,6 +2,7 @@ import pygame
 from util.graph_util import *
 from algorithms.aStar import *
 from algorithms.bfs import *
+from algorithms.dijkstra import *
 
 def runAlgorithm(window, width):
     ROWS = 50
@@ -58,7 +59,7 @@ def runAlgorithm(window, width):
                         for node in row:
                             node.update_neighbors(grid) # update neighbors based on change in barriers
                     
-                    aStar(lambda: draw(window, grid, ROWS, width), grid, start, end)
+                    bfs(lambda: draw(window, grid, ROWS, width), start, end)
 
                 elif event.key == pygame.K_r: # reset board
                     resetGrid(grid)
