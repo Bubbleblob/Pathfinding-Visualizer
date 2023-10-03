@@ -5,12 +5,14 @@ from util.colors import *
 class Button:
     # variables 
     text_color = BLACK
-    width = 180
-    height = 70
+    # width = 100
+    # height = 50
 
-    def __init__(self, x, y, text):
+    def __init__(self, x, y, width, height, text):
         self.x = x
         self.y = y
+        self.width = width
+        self.height = height
         self.rect = Rect(self.x, self.y, self.width, self.height)
         self.text = text
         self.clicked = False
@@ -34,8 +36,9 @@ class Button:
 
         font = pygame.font.SysFont("Arial", 30, bold=False, italic=False)
         text_img = font.render(self.text, True, self.text_color)
-        text_len = text_img.get_width()
-        surface.blit(text_img, (self.x + int(self.width / 2) - int(text_len / 2), self.y + 25))
+        text_x = (self.width - text_img.get_width()) // 2
+        text_y = (self.height - text_img.get_height()) // 2
+        surface.blit(text_img, (self.x + text_x, self.y + text_y))
 
         return action
     

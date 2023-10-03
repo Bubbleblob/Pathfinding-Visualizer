@@ -15,7 +15,14 @@ def runAlgorithm(window, width):
     update_grid = pygame.Rect(0, 0, width, width) # used to only update the grid
     update_control_panel = pygame.Rect(0, 800, 800, 200) # used to only update the control panel
 
-    test_button = Button(100, 850, "test")
+    main_menu_button = Button(100, 850, 130, 50, "main menu")
+    reset_button = Button(250, 850, 100, 50, "reset")
+    run_algorithm_button = Button(400, 850, 100, 50, "run")
+    choose_algorithm_button = Button(550, 850, 110, 50, "algorithm")
+
+    # a_star_button = Button(100, 850, 100, 50, "A*")
+    # dijkstra_button = Button(100, 850, 100, 50, "Dijkstra")
+    # bfs_button = Button(100, 850, 100, 50, "BFS")
 
     while run:
         draw(window, grid, ROWS, width, update_grid)
@@ -23,6 +30,7 @@ def runAlgorithm(window, width):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                pygame.quit()
             
             if started: # prevent clicks while algorithm is running
                 continue
@@ -72,7 +80,21 @@ def runAlgorithm(window, width):
                     start = None
                     end = None
 
-        if test_button.draw(window):
-            print("works")
+        if main_menu_button.draw(window):
+            run = False
+        if reset_button.draw(window):
+            resetGrid(grid)
+            start = None
+            end = None
+        if run_algorithm_button.draw(window):
+            for row in grid:
+                for node in row:
+                    node.update_neighbors(grid) # update neighbors based on change in barriers
+            
+            aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
+        if choose_algorithm_button.draw(window):
+            print("4")                                                                                          # FINISH THIS PART
+        
         pygame.display.update(update_control_panel)
-    pygame.QUIT()
+    
+    return

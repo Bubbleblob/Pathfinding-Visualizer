@@ -15,7 +15,7 @@ def make_grid(rows, width):
 
 def draw_grid(window, rows, width):
     gap = width // rows
-    for i in range(rows):
+    for i in range(rows + 1):
         pygame.draw.line(window, GREY, (0, i * gap), (width, i * gap))
         for j in range(rows):
             pygame.draw.line(window, GREY, (j * gap, 0), (j * gap, width))

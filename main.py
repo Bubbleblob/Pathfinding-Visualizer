@@ -14,9 +14,8 @@ def main():
     pygame.display.set_caption("A* Path Finding Algorithm")
 
     # create button instances
-    start_button = Button(100, 200, "start")
-    exit_button = Button(450, 200, "exit")
-    # test_button = Button(100, 850, "test")
+    start_button = Button(100, 200, 100, 50, "start")
+    exit_button = Button(450, 200, 100, 50, "exit")
 
     run = True
     
@@ -34,7 +33,7 @@ def main():
 
         pygame.display.update()
     
-    pygame.QUIT()
+    pygame.quit()
 
 
 if __name__ == '__main__':
