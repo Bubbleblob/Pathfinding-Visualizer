@@ -9,12 +9,14 @@ def main():
 
     # create menu screen 
     WIDTH = 800
-    screen = pygame.display.set_mode((WIDTH, WIDTH))
+    HEIGHT = 1000
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("A* Path Finding Algorithm")
 
     # create button instances
     start_button = Button(100, 200, "start")
     exit_button = Button(450, 200, "exit")
+    # test_button = Button(100, 850, "test")
 
     run = True
     

@@ -3,6 +3,7 @@ from util.graph_util import *
 from algorithms.aStar import *
 from algorithms.bfs import *
 from algorithms.dijkstra import *
+from util.button import *
 
 def runAlgorithm(window, width):
     ROWS = 50
@@ -11,9 +12,14 @@ def runAlgorithm(window, width):
     start = None
     end = None
     grid = make_grid(ROWS, width)
+    update_grid = pygame.Rect(0, 0, width, width) # used to only update the grid
+    update_control_panel = pygame.Rect(0, 800, 800, 200) # used to only update the control panel
+
+    test_button = Button(100, 850, "test")
 
     while run:
-        draw(window, grid, ROWS, width)
+        draw(window, grid, ROWS, width, update_grid)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -59,11 +65,14 @@ def runAlgorithm(window, width):
                         for node in row:
                             node.update_neighbors(grid) # update neighbors based on change in barriers
                     
-                    bfs(lambda: draw(window, grid, ROWS, width), start, end)
+                    aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
 
                 elif event.key == pygame.K_r: # reset board
                     resetGrid(grid)
                     start = None
                     end = None
 
+        if test_button.draw(window):
+            print("works")
+        pygame.display.update(update_control_panel)
     pygame.QUIT()

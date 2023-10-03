@@ -25,7 +25,7 @@ def resetGrid(grid):
         for node in row:
             node.reset()
 
-def draw(window, grid, rows, width):
+def draw(window, grid, rows, width, update_rect):
     window.fill(WHITE)
 
     for row in grid:
@@ -33,7 +33,7 @@ def draw(window, grid, rows, width):
             node.draw(window)
     
     draw_grid(window, rows, width)
-    pygame.display.update()
+    pygame.display.update(update_rect)
 
 def get_clicked_pos(pos, rows, width):
     gap = width // rows
