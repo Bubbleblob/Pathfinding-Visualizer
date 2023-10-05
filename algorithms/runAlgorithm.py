@@ -5,7 +5,7 @@ from algorithms.bfs import *
 from algorithms.dijkstra import *
 from util.button import *
 
-def runAlgorithm(window, width):
+def runAlgorithm(window, width, algorithm_flag):
     ROWS = 50
     run = True
     started = False
@@ -78,7 +78,7 @@ def runAlgorithm(window, width):
                         for node in row:
                             node.update_neighbors(grid) # update neighbors based on change in barriers
                     
-                    aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
+                    dijkstra(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
 
                 elif event.key == pygame.K_r: # reset board
                     resetGrid(grid)
@@ -101,23 +101,31 @@ def runAlgorithm(window, width):
                         for node in row:
                             node.update_neighbors(grid) # update neighbors based on change in barriers
                     
-                    aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
+                    if algorithm_flag[0] == 0:
+                        aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
+                    elif algorithm_flag[0] == 1:
+                        dijkstra(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
+                    else:
+                        bfs(lambda: draw(window, grid, ROWS, width, update_grid), start, end)
 
             if choose_algorithm_button.draw(window):
                 main_panel_flag = False
                 algorithm_panel_flag = True
 
         # buttons for choosing algorithm panel
-        if algorithm_panel_flag: ################################################################################# FINISH THIS
+        if algorithm_panel_flag: 
             if a_star_button.draw(window):
+                algorithm_flag[0] = 0
                 main_panel_flag = True
                 algorithm_panel_flag = False
 
             if dijkstra_button.draw(window):
+                algorithm_flag[0] = 1
                 main_panel_flag = True
                 algorithm_panel_flag = False
 
             if bfs_button.draw(window):
+                algorithm_flag[0] = 2
                 main_panel_flag = True
                 algorithm_panel_flag = False
         

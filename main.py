@@ -17,6 +17,9 @@ def main():
     start_button = Button(100, 200, 100, 50, "start")
     exit_button = Button(450, 200, 100, 50, "exit")
 
+    # used for determining which algorithm to run (0-aStar, 1-dijsktra, 2-bfs)
+    algorithm_flag = [0]
+
     run = True
     
     while run:
@@ -27,7 +30,7 @@ def main():
                 run = False
 
         if start_button.draw(screen):
-            runAlgorithm(screen, WIDTH)
+            runAlgorithm(screen, WIDTH, algorithm_flag)
         if exit_button.draw(screen):
             run = False
 
