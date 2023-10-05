@@ -15,6 +15,7 @@ def runAlgorithm(window, width, algorithm_flag):
     update_grid = pygame.Rect(0, 0, width, width) # used to only update the grid
     update_control_panel = pygame.Rect(0, 800, 800, 200) # used to only update the control panel
 
+    # buttons
     main_menu_button = Button(100, 850, 130, 50, "main menu")
     reset_button = Button(250, 850, 100, 50, "reset")
     run_algorithm_button = Button(400, 850, 100, 50, "run")
@@ -27,10 +28,29 @@ def runAlgorithm(window, width, algorithm_flag):
     main_panel_flag = True  # used to display and run functionality of main panel buttons
     algorithm_panel_flag = False  # used to display and run functionality of choosing algorithm buttons
 
+    # display text based on which algorithm is currently picked
+    # if algorithm_flag[0] == 0:
+    #     current_algorithm_text = "A*"
+    # elif algorithm_flag[0] == 1:
+    #     current_algorithm_text = "Dijsktra"
+    # else:
+    #     current_algorithm_text = "Breadth First Search"
+
+    font = pygame.font.SysFont("Arial", 40)
+
     while run:
         draw(window, grid, ROWS, width, update_grid)
         pygame.draw.rect(window, LIGHT_GREY, update_control_panel)
         pygame.draw.line(window, GREY, (0, width), (width, width))
+
+        if algorithm_flag[0] == 0:
+            current_algorithm_text = "A*"
+        elif algorithm_flag[0] == 1:
+            current_algorithm_text = "Dijsktra"
+        else:
+            current_algorithm_text = "Breadth First Search"
+        title_surface = font.render(current_algorithm_text, True, BLACK)
+        window.blit(title_surface, (0, 800))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -70,19 +90,6 @@ def runAlgorithm(window, width, algorithm_flag):
                 if node == start:
                     start = None
                 if node == end:
-                    end = None
-
-            if event.type == pygame.KEYDOWN: # start algorithm
-                if event.key == pygame.K_SPACE and start and end:
-                    for row in grid:
-                        for node in row:
-                            node.update_neighbors(grid) # update neighbors based on change in barriers
-                    
-                    dijkstra(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
-
-                elif event.key == pygame.K_r: # reset board
-                    resetGrid(grid)
-                    start = None
                     end = None
 
         # buttons for main panel
