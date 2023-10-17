@@ -12,9 +12,8 @@ def bfs(draw, start, end):
 
     while queue:
         for event in pygame.event.get():
-                if event.type == pygame.QUIT: # exit game
-                    pygame.quit()
-        
+            if event.type == pygame.QUIT: # exit game
+                pygame.quit()
         current = queue.pop(0)
 
         if current == end: # reconstruct path
@@ -24,7 +23,7 @@ def bfs(draw, start, end):
             return True
 
         for neighbor in current.neighbors:
-             if neighbor not in visited:
+            if neighbor not in visited:
                 came_from[neighbor] = current
                 queue.append(neighbor)
                 visited.add(neighbor)

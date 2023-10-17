@@ -7,7 +7,7 @@ from algorithms.runAlgorithm import *
 def main():
     pygame.init()
 
-    # create menu screen 
+    # create menu screen
     WIDTH = 800
     HEIGHT = 1000
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -29,7 +29,6 @@ def main():
     algorithm_flag = [0]
 
     run = True
-    
     while run:
         screen.fill(LIGHT_GREY)
         screen.blit(title_surface, (200, 200))
@@ -44,7 +43,6 @@ def main():
             run = False
 
         pygame.display.update()
-    
     pygame.quit()
 
 

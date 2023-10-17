@@ -14,25 +14,18 @@ class Node:
 
     def get_position(self):
         return self.row, self.col
-    
     def is_closed(self):
         return self.color == YELLOW
-    
     def is_open(self):
         return self.color == PEACH
-    
     def is_barrier(self):
         return self.color == BLACK
-    
     def is_start(self):
         return self.color == GREEN
-    
     def is_end(self):
         return self.color == RED
-    
     def reset(self):
         self.color = WHITE
-    
     def make_start(self):
         self.color = GREEN
 
@@ -68,3 +61,4 @@ class Node:
 
     def __lt__(self, other):
         return False
+    

@@ -1,7 +1,7 @@
+import heapq
 import pygame
 from util.graph_util import *
 from util.node import *
-import heapq
 
 def dijkstra(draw, grid, start, end):
     # initialize distances to infinity and set start to 0
@@ -20,7 +20,6 @@ def dijkstra(draw, grid, start, end):
             reconstruct_path(came_from, end, draw)
             start.make_start()
             return True
-        
         if distance > distances[current]:
             continue
 
@@ -32,8 +31,8 @@ def dijkstra(draw, grid, start, end):
                 came_from[neighbor] = current
                 distances[neighbor] = new_distance
                 heapq.heappush(min_heap, (new_distance, neighbor))
-        
         draw()
 
         if current != start:
             current.make_closed()
+            

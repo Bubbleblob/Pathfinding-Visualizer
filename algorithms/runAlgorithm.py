@@ -56,7 +56,7 @@ def runAlgorithm(window, width, algorithm_flag):
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit()
-            
+
             if started: # prevent clicks while algorithm is running
                 continue
 
@@ -96,7 +96,7 @@ def runAlgorithm(window, width, algorithm_flag):
         if main_panel_flag:
             if main_menu_button.draw(window):
                 run = False
-                
+
             if reset_button.draw(window):
                 resetGrid(grid)
                 start = None
@@ -107,7 +107,7 @@ def runAlgorithm(window, width, algorithm_flag):
                     for row in grid:
                         for node in row:
                             node.update_neighbors(grid) # update neighbors based on change in barriers
-                    
+
                     if algorithm_flag[0] == 0:
                         aStar(lambda: draw(window, grid, ROWS, width, update_grid), grid, start, end)
                     elif algorithm_flag[0] == 1:
@@ -135,7 +135,7 @@ def runAlgorithm(window, width, algorithm_flag):
                 algorithm_flag[0] = 2
                 main_panel_flag = True
                 algorithm_panel_flag = False
-        
+
         pygame.display.update(update_control_panel)
-    
+
     return

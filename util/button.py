@@ -3,7 +3,7 @@ from pygame.locals import *
 from util.colors import *
 
 class Button:
-    # variables 
+    # variables
     text_color = BLACK
     # width = 100
     # height = 50
@@ -16,7 +16,7 @@ class Button:
         self.rect = Rect(self.x, self.y, self.width, self.height)
         self.text = text
         self.clicked = False
-    
+
     def draw(self, surface):
         action = False
         pos = pygame.mouse.get_pos()
@@ -25,8 +25,7 @@ class Button:
             if pygame.mouse.get_pressed()[0] == 1:
                 self.clicked = True
                 pygame.draw.rect(surface, CLICKED_COLOR, self.rect)
-        
-            elif pygame.mouse.get_pressed()[0] == 0 and self.clicked == True:
+            elif pygame.mouse.get_pressed()[0] == 0 and self.clicked is True:
                 self.clicked = False
                 action = True
             else:

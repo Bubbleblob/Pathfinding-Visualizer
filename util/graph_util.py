@@ -10,7 +10,6 @@ def make_grid(rows, width):
         for j in range(rows):
             node = Node(i, j, gap, rows)
             grid[i].append(node)
-    
     return grid
 
 def draw_grid(window, rows, width):
@@ -30,8 +29,7 @@ def draw(window, grid, rows, width, update_rect):
 
     for row in grid:
         for node in row:
-            node.draw(window)
-    
+            node.draw(window)   
     draw_grid(window, rows, width)
     pygame.display.update(update_rect)
 

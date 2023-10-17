@@ -1,3 +1,7 @@
+"""
+This file holds all the constant values of colors
+"""
+
 RED = (255, 0, 0)            # end
 GREEN = (0, 255, 0)          # start
 YELLOW = (255, 255, 100)     # closed
