@@ -47,3 +47,6 @@ To check what folders you can go into you can type the `ls` command in the comma
 ```
 python main.py
 ```
+## Current working on
+
+Figuring out how to display this project on a browser 
